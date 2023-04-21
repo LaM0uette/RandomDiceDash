@@ -71,15 +71,17 @@ h1 {
   }
 }
 
-.grid-player-second {
-  h2 {
-    font-weight: 300;
-  }
-
+.grid-player-main {
   p{
-    font-size: 2em;
+    margin-top: .3em;
+  }
+}
+
+.grid-player-second {
+  p{
+    font-size: 3em;
     color: $colorPrimary;
-    margin-left: 0.6em;
+    margin-left: 0.5em;
   }
 }
 

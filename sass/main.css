@@ -348,13 +348,14 @@ h1 {
   color: #DC3C33;
 }
 
-.grid-player-second h2 {
-  font-weight: 300;
+.grid-player-main p {
+  margin-top: 0.3em;
 }
+
 .grid-player-second p {
-  font-size: 2em;
+  font-size: 3em;
   color: #DC3C33;
-  margin-left: 0.6em;
+  margin-left: 0.5em;
 }
 
 .player-main-current-score {
