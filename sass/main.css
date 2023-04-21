@@ -245,32 +245,25 @@ p {
 
 .grid-container {
   display: grid;
-  grid-template-areas: "newGame newGame" "playerMain playerMain" "dice dice" "game game" "playerSecond playerSecond";
-  grid-template-rows: 15% 17% 31% 12% 23%;
-  grid-gap: 10px;
-}
-.grid-container > * {
-  padding: 1em;
-  border: orange 1px solid;
+  grid-template-areas: "spaceHeader spaceHeader" "playerMain playerMain" "dice dice" "game game" "spaceGame spaceGame" "playerSecond playerSecond" "newGame newGame";
+  grid-template-rows: 1em 1fr 2fr 1fr 2em 1fr 1fr;
+  grid-gap: 1em;
 }
 
 .grid-new-game {
   grid-area: newGame;
   justify-self: center;
-  align-self: center;
 }
 
 .grid-player-main {
   grid-area: playerMain;
   justify-self: center;
-  align-self: center;
   text-align: center;
 }
 
 .grid-player-second {
   grid-area: playerSecond;
   justify-self: center;
-  align-self: center;
   display: flex;
   align-items: center;
 }
@@ -284,12 +277,14 @@ p {
 .grid-game {
   grid-area: game;
   justify-self: center;
-  align-self: center;
   display: flex;
   align-items: center;
 }
 
 header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 10vh;
 }
 

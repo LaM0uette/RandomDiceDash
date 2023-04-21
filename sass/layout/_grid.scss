@@ -1,37 +1,39 @@
 .grid-container {
   display: grid;
   grid-template-areas:
-          "newGame newGame"
+          "spaceHeader spaceHeader"
           "playerMain playerMain"
           "dice dice"
           "game game"
-          "playerSecond playerSecond";
-  grid-template-rows: 15% 17% 31% 12% 23%;
-  grid-gap: 10px;
-
-  > * {
-    padding: 1em;
-    border: orange 1px solid;
-  }
+          "spaceGame spaceGame"
+          "playerSecond playerSecond"
+          "newGame newGame";
+  //grid-template-rows: 15% 17% 31% 12% 23%;
+  grid-template-rows:
+          1em  // spaceHeader
+          1fr  // playerMain
+          2fr  // dice
+          1fr  // game
+          2em  // spaceGame
+          1fr  // playerSecond
+          1fr; // newGame
+  grid-gap: 1em;
 }
 
 .grid-new-game {
   grid-area: newGame;
   justify-self: center;
-  align-self: center;
 }
 
 .grid-player-main {
   grid-area: playerMain;
   justify-self: center;
-  align-self: center;
   text-align: center;
 }
 
 .grid-player-second {
   grid-area: playerSecond;
   justify-self: center;
-  align-self: center;
   display: flex;
   align-items: center;
 }
@@ -45,7 +47,6 @@
 .grid-game {
   grid-area: game;
   justify-self: center;
-  align-self: center;
   display: flex;
   align-items: center;
 }
