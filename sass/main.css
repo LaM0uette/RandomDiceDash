@@ -314,15 +314,15 @@ h1 {
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 1.3em;
-  font-weight: 500;
-  color: #24312D;
 }
 
 .btn-action {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.6em;
+  font-weight: 500;
+  color: #24312D;
 }
 .btn-action img {
   height: 1.2em;
@@ -332,8 +332,8 @@ h1 {
 .btn-dice {
   min-width: 100px;
   min-height: 100px;
-  width: 8em;
-  height: 8em;
+  width: 10em;
+  height: 10em;
 }
 
 .btn-dice-icon {
