@@ -253,10 +253,6 @@ p {
   grid-template-rows: 1em 1fr 2fr 1fr 2em 1fr 1fr;
   grid-gap: 1em;
 }
-.grid-container > * {
-  border: #24312D solid 1px;
-}
-
 .grid-new-game {
   grid-area: newGame;
   justify-self: center;
@@ -330,10 +326,10 @@ h1 {
 }
 
 .btn-dice {
-  min-width: 100px;
-  min-height: 100px;
-  width: 10em;
-  height: 10em;
+  width: 30vmin;
+  height: 30vmin;
+  max-width: 120px;
+  max-height: 120px;
 }
 
 .btn-dice-icon {
@@ -362,7 +358,7 @@ h1 {
   display: inline-block;
   width: 30vmin;
   max-width: 45%;
-  margin-right: 1.5em;
+  margin-right: 2em;
   border-radius: 0.3rem;
   background-color: #DC3C33;
   text-align: center;

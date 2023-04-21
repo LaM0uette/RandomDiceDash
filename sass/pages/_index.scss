@@ -49,10 +49,10 @@ h1 {
 }
 
 .btn-dice {
-  min-width: 100px;
-  min-height: 100px;
-  width: 10em;
-  height: 10em;
+  width: 30vmin;
+  height: 30vmin;
+  max-width: 120px;
+  max-height: 120px;
 }
 
 .btn-dice-icon {
@@ -91,7 +91,7 @@ h1 {
   display: inline-block;
   width: 30vmin;
   max-width: 45%;
-  margin-right: 1.5em;
+  margin-right: 2em;
   border-radius: $borderRadius;
   background-color: $colorPrimary;
   text-align: center;
