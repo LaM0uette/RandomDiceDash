@@ -223,24 +223,24 @@ a {
 
 h1 {
   font-weight: 900;
-  color: #EB544C;
+  color: #DC3C33;
 }
 
 h2, label {
   font-weight: 700;
   font-size: 2em;
-  color: #191515;
+  color: #24312D;
 }
 
 h3 {
   font-weight: 400;
   font-size: 1.3em;
-  color: #191515;
+  color: #24312D;
 }
 
 p {
   font-weight: 300;
-  color: #191515;
+  color: #24312D;
 }
 
 .grid-container {
@@ -309,7 +309,7 @@ h1 {
   cursor: pointer;
   font-size: 1.3em;
   font-weight: 500;
-  color: #191515;
+  color: #24312D;
 }
 
 .btn-action {
@@ -331,7 +331,7 @@ h1 {
 
 .grid-player p {
   font-size: 4em;
-  color: #EB544C;
+  color: #DC3C33;
 }
 
 .grid-player-second h2 {
@@ -339,7 +339,7 @@ h1 {
 }
 .grid-player-second p {
   font-size: 2em;
-  color: #EB544C;
+  color: #DC3C33;
   margin-left: 0.6em;
 }
 
@@ -347,15 +347,15 @@ h1 {
   display: inline-block;
   width: 30vmax;
   border-radius: 0.3rem;
-  background-color: #EB544C;
+  background-color: #DC3C33;
 }
 .player-main-current-score h3 {
   font-size: 2em;
-  color: #F1F5F4;
+  color: #FCF9F9;
 }
 .player-main-current-score p {
   font-size: 3em;
-  color: #F1F5F4;
+  color: #FCF9F9;
 }
 
 /*# sourceMappingURL=main.css.map */
