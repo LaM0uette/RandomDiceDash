@@ -4,11 +4,56 @@
     <meta charset="UTF-8">
     <meta name="description" content="RandomDiceDash is a 2 players game. Each player can throw a dice as many time as they want for to score maximum point. But beware ! if the player fall on 1 with dice, he score 0 point at this round and pass he turn. The first player to reach 100 points win this game.">
     <link rel="stylesheet" href="sass/main.css">
+    <link rel="icon" type="image/svg+xml" href="img/dice/dice_6.svg">
     <title>RandomDiceDash</title>
 </head>
-
 <body>
 
-</body>
+<header>
+    <h1>RandomDiceDash</h1>
+</header>
 
+<main class="grid-container">
+    <section class="grid-new-game">
+        <button class="btn btn-action btn-new-game">
+            <img src="img/ui/plus.svg" alt="New Game"  class="btn-icon btn-new-game-icon">
+            <span class="btn-span btn-new-game-span">New Game</span>
+        </button>
+    </section>
+
+    <section class="grid-player-main">
+        <h2 class="player-main-global-score-title">PLAYER 1</h2>
+        <p class="player-main-global-score-value">0</p>
+    </section>
+
+    <section class="grid-player-second">
+        <h2 class="player-second-global-score-title">PLAYER 2</h2>
+        <p class="player-second-global-score-value">0</p>
+    </section>
+
+    <section class="grid-dice">
+        <button class="btn btn-dice">
+            <img src="img/dice/dice_6.svg" alt="Dice"  class="btn-dice-icon">
+        </button>
+    </section>
+
+    <section class="grid-game">
+        <div class="player-main-current-score">
+            <h3 class="player-main-current-score-title">Current</h3>
+            <p class="player-main-current-score-value">0</p>
+        </div>
+
+        <button class="btn btn-action btn-roll-dice">
+            <img src="img/ui/roll.svg" alt="Roll dice"  class="btn-icon btn-roll-dice-icon">
+            <span class="btn-span btn-roll-dice-span">ROLL DICE</span>
+        </button>
+
+        <button class="btn btn-action btn-hold">
+            <img src="img/ui/hold.svg" alt="Hold"  class="btn-icon btn-hold-icon">
+            <span class="btn-span btn-hold-span">HOLD</span>
+        </button>
+    </section>
+</main>
+
+</body>
 </html>
