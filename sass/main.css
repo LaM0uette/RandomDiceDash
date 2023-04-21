@@ -1,0 +1,179 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+q:before,
+q:after {
+  content: "";
+}
+
+abbr,
+acronym {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.debug-black {
+  border: 1px solid black;
+}
+
+.debug-blue {
+  border: 1px solid blue;
+}
+
+.debug-brown {
+  border: 1px solid brown;
+}
+
+.debug-green {
+  border: 1px solid green;
+}
+
+.debug-gray {
+  border: 1px solid gray;
+}
+
+.debug-orange {
+  border: 1px solid orange;
+}
+
+.debug-pink {
+  border: 1px solid pink;
+}
+
+.debug-purple {
+  border: 1px solid purple;
+}
+
+.debug-red {
+  border: 1px solid red;
+}
+
+.debug-yellow {
+  border: 1px solid yellow;
+}
+
+.debug-white {
+  border: 1px solid white;
+}
+
+.debug-fill-black {
+  background-color: black;
+}
+
+.debug-fill-blue {
+  background-color: blue;
+}
+
+.debug-fill-brown {
+  background-color: brown;
+}
+
+.debug-fill-green {
+  background-color: green;
+}
+
+.debug-fill-gray {
+  background-color: gray;
+}
+
+.debug-fill-orange {
+  background-color: orange;
+}
+
+.debug-fill-pink {
+  background-color: pink;
+}
+
+.debug-fill-purple {
+  background-color: purple;
+}
+
+.debug-fill-red {
+  background-color: red;
+}
+
+.debug-fill-yellow {
+  background-color: yellow;
+}
+
+.debug-fill-white {
+  background-color: white;
+}
+
+/*
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../fonts/Roboto/Roboto-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+/*# sourceMappingURL=main.css.map */
