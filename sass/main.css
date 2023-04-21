@@ -249,8 +249,8 @@ p {
 
 .grid-container {
   display: grid;
-  grid-template-areas: "spaceHeader spaceHeader" "playerMain playerMain" "dice dice" "game game" "spaceGame spaceGame" "playerSecond playerSecond" "newGame newGame";
-  grid-template-rows: 1em 1fr 2fr 1fr 2em 1fr 1fr;
+  grid-template-areas: "spaceHeader spaceHeader" "playerMain playerMain" "dice dice" "game game" "spaceGame spaceGame" "playerSecond playerSecond" "newGame newGame" "spaceFooter spaceFooter";
+  grid-template-rows: 1em 1fr 2fr 1fr 2em 1fr 1fr 0.3fr;
   grid-gap: 1em;
 }
 .grid-new-game {
@@ -326,8 +326,8 @@ h1 {
 }
 
 .btn-dice {
-  width: 15vmax;
-  height: 15vmax;
+  width: 14vmax;
+  height: 14vmax;
 }
 
 .btn-dice-icon {
@@ -338,8 +338,8 @@ h1 {
 
 @media screen and (min-width: 850px) {
   .btn-dice {
-    width: 9vmax;
-    height: 9vmax;
+    width: 8vmax;
+    height: 8vmax;
   }
 }
 .grid-player p {

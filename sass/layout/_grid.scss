@@ -7,7 +7,8 @@
           "game game"
           "spaceGame spaceGame"
           "playerSecond playerSecond"
-          "newGame newGame";
+          "newGame newGame"
+          "spaceFooter spaceFooter";
   grid-template-rows:
           1em  // spaceHeader
           1fr  // playerMain
@@ -15,7 +16,8 @@
           1fr  // game
           2em  // spaceGame
           1fr  // playerSecond
-          1fr; // newGame
+          1fr  // newGame
+          0.3fr; // spaceFooter
   grid-gap: 1em;
 
   > * {
