@@ -216,31 +216,32 @@ a {
   font-weight: 900;
   font-style: italic;
 }
+* {
+  font-family: "Lato-Regular", sans-serif;
+}
+
 h1 {
-  font-family: "Lato-Black", sans-serif;
+  font-weight: 900;
   color: #EB544C;
 }
 
 h2, label {
-  font-family: "Lato-Bold", sans-serif;
+  font-weight: 700;
   color: #1D1E1A;
 }
 
 h3 {
-  font-family: "Lato-Regular", sans-serif;
+  font-weight: 400;
   color: #1D1E1A;
 }
 
 p {
-  font-family: "Lato-Light", sans-serif;
+  font-weight: 300;
   color: #1D1E1A;
 }
 
 h1 {
-  font-size: 4vmax;
-  font-weight: 700;
-  color: #EB544C;
-  margin-bottom: 1rem;
+  font-size: 3.8vmax;
 }
 
 .btn {
