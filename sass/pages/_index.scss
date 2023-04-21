@@ -1,6 +1,13 @@
+// Header
+header {
+  height: 10vh;
+}
+
+
 // Main
 main {
   font-size: 2vmax;
+  height: 90vh;
 }
 
 @media screen and (min-width: 1000px){
@@ -12,6 +19,7 @@ main {
 
 // Title H1
 h1 {
+  text-align: center;
   font-size: 3.8vmax;
 }
 
@@ -50,6 +58,18 @@ h1 {
   p{
     font-size: 4em;
     color: $colorPrimary;
+  }
+}
+
+.grid-player-second {
+  h2 {
+    font-weight: 300;
+  }
+
+  p{
+    font-size: 2em;
+    color: $colorPrimary;
+    margin-left: 0.6em;
   }
 }
 

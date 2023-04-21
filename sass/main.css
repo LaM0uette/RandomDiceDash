@@ -17,6 +17,7 @@ form,
 fieldset,
 input,
 textarea,
+button,
 p,
 blockquote,
 th,
@@ -242,8 +243,59 @@ p {
   color: #191515;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-areas: "newGame newGame" "playerMain playerMain" "dice dice" "game game" "playerSecond playerSecond";
+  grid-template-rows: 15% 17% 31% 12% 23%;
+  grid-gap: 10px;
+}
+.grid-container > * {
+  padding: 1em;
+  border: orange 1px solid;
+}
+
+.grid-new-game {
+  grid-area: newGame;
+  justify-self: center;
+  align-self: center;
+}
+
+.grid-player-main {
+  grid-area: playerMain;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+.grid-player-second {
+  grid-area: playerSecond;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
+
+.grid-dice {
+  grid-area: dice;
+  justify-self: center;
+  align-self: center;
+}
+
+.grid-game {
+  grid-area: game;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
+
+header {
+  height: 10vh;
+}
+
 main {
   font-size: 2vmax;
+  height: 90vh;
 }
 
 @media screen and (min-width: 1000px) {
@@ -252,6 +304,7 @@ main {
   }
 }
 h1 {
+  text-align: center;
   font-size: 3.8vmax;
 }
 
@@ -284,6 +337,15 @@ h1 {
 .grid-player p {
   font-size: 4em;
   color: #EB544C;
+}
+
+.grid-player-second h2 {
+  font-weight: 300;
+}
+.grid-player-second p {
+  font-size: 2em;
+  color: #EB544C;
+  margin-left: 0.6em;
 }
 
 .player-main-current-score {

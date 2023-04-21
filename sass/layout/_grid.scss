@@ -1,0 +1,51 @@
+.grid-container {
+  display: grid;
+  grid-template-areas:
+          "newGame newGame"
+          "playerMain playerMain"
+          "dice dice"
+          "game game"
+          "playerSecond playerSecond";
+  grid-template-rows: 15% 17% 31% 12% 23%;
+  grid-gap: 10px;
+
+  > * {
+    padding: 1em;
+    border: orange 1px solid;
+  }
+}
+
+.grid-new-game {
+  grid-area: newGame;
+  justify-self: center;
+  align-self: center;
+}
+
+.grid-player-main {
+  grid-area: playerMain;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+
+.grid-player-second {
+  grid-area: playerSecond;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
+
+.grid-dice {
+  grid-area: dice;
+  justify-self: center;
+  align-self: center;
+}
+
+.grid-game {
+  grid-area: game;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
