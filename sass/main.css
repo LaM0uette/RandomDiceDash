@@ -326,10 +326,8 @@ h1 {
 }
 
 .btn-dice {
-  width: 30vmin;
-  height: 30vmin;
-  max-width: 120px;
-  max-height: 120px;
+  width: 15vmax;
+  height: 15vmax;
 }
 
 .btn-dice-icon {
@@ -338,6 +336,12 @@ h1 {
   box-shadow: 9px 9px 10px #edeaea, -9px -9px 10px #ffffff;
 }
 
+@media screen and (min-width: 850px) {
+  .btn-dice {
+    width: 9vmax;
+    height: 9vmax;
+  }
+}
 .grid-player p {
   font-size: 5em;
   line-height: 0.7;
