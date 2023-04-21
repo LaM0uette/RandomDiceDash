@@ -221,6 +221,10 @@ a {
   font-family: "Lato-Regular", sans-serif;
 }
 
+body {
+  background-color: #FCF9F9;
+}
+
 h1 {
   font-weight: 900;
   color: #DC3C33;
@@ -248,6 +252,9 @@ p {
   grid-template-areas: "spaceHeader spaceHeader" "playerMain playerMain" "dice dice" "game game" "spaceGame spaceGame" "playerSecond playerSecond" "newGame newGame";
   grid-template-rows: 1em 1fr 2fr 1fr 2em 1fr 1fr;
   grid-gap: 1em;
+}
+.grid-container > * {
+  border: #24312D solid 1px;
 }
 
 .grid-new-game {
@@ -327,6 +334,12 @@ h1 {
   min-height: 100px;
   width: 8em;
   height: 8em;
+}
+
+.btn-dice-icon {
+  border-radius: 25px;
+  background: #FCF9F9;
+  box-shadow: 9px 9px 10px #edeaea, -9px -9px 10px #ffffff;
 }
 
 .grid-player p {

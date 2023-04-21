@@ -48,11 +48,17 @@ h1 {
   }
 }
 
-.btn-dice{
+.btn-dice {
   min-width: 100px;
   min-height: 100px;
   width: 8em;
   height: 8em;
+}
+
+.btn-dice-icon {
+  border-radius: 25px;
+  background: $colorTertiary;
+  box-shadow:  9px 9px 10px #edeaea, -9px -9px 10px #ffffff;
 }
 
 

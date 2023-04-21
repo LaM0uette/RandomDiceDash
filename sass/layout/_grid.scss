@@ -17,6 +17,10 @@
           1fr  // playerSecond
           1fr; // newGame
   grid-gap: 1em;
+
+  > * {
+    border: #24312D solid 1px;
+  }
 }
 
 .grid-new-game {
