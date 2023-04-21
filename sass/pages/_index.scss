@@ -23,7 +23,7 @@ main {
 // Title H1
 h1 {
   text-align: center;
-  font-size: 3.8vmax;
+  font-size: 4.8vmax;
 }
 
 
@@ -65,7 +65,8 @@ h1 {
 // Player
 .grid-player {
   p{
-    font-size: 4em;
+    font-size: 5em;
+    line-height: .7;
     color: $colorPrimary;
   }
 }

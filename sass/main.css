@@ -226,13 +226,13 @@ body {
 }
 
 h1 {
-  font-weight: 900;
+  font-weight: 700;
   color: #DC3C33;
 }
 
 h2, label {
-  font-weight: 700;
-  font-size: 2em;
+  font-weight: 500;
+  font-size: 2.5em;
   color: #24312D;
 }
 
@@ -307,7 +307,7 @@ main {
 }
 h1 {
   text-align: center;
-  font-size: 3.8vmax;
+  font-size: 4.8vmax;
 }
 
 .btn {
@@ -343,7 +343,8 @@ h1 {
 }
 
 .grid-player p {
-  font-size: 4em;
+  font-size: 5em;
+  line-height: 0.7;
   color: #DC3C33;
 }
 
