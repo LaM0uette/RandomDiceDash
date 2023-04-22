@@ -1,11 +1,14 @@
-const DiceButton = document.getElementById("btn-dice");
-const RollButton = document.getElementById("btn-roll-dice");
-const HoldButton = document.getElementById("btn-hold");
+import * as Constants from './constants.js';
+import * as Utils from './utils.js';
 
 document.addEventListener("DOMContentLoaded", OnLoad)
 
 function OnLoad() {
-    DiceButton.classList.add('disabled-button');
-    RollButton.classList.add('disabled-button');
-    HoldButton.classList.add('disabled-button');
+    DisableButton();
 }
+
+function DisableButton() {
+    let elements = [Constants.DiceButton, Constants.RollButton, Constants.HoldButton];
+    Utils.AddClassOnHtmlElements(elements, 'disabled-button');
+}
+
