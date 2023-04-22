@@ -253,10 +253,6 @@ p {
   grid-template-rows: 1em 1fr 2fr 1fr 2em 1fr 1fr 0.3fr;
   grid-gap: 1em;
 }
-.grid-container > * {
-  border: #24312D solid 1px;
-}
-
 .grid-new-game {
   grid-area: newGame;
   justify-self: center;
@@ -271,8 +267,7 @@ p {
 .grid-player-second {
   grid-area: playerSecond;
   justify-self: center;
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .grid-dice {
@@ -295,25 +290,49 @@ p {
   .player-current-score.player-second-current-score {
     display: none;
   }
+  .grid-player-second {
+    display: flex;
+    align-items: center;
+  }
 }
 @media screen and (min-width: 1000px) {
   .grid-container {
-    grid-template-areas: "spaceHeader spaceHeader spaceHeader spaceHeader" "playerMain . . playerSecond" "playerMain dice dice playerSecond" "spaceGame spaceGame spaceGame spaceGame" "gameP1 btnAction btnAction gameP2" "newGame newGame newGame newGame" "spaceFooter spaceFooter spaceFooter spaceFooter";
-    grid-template-rows: 1em 1fr 2fr 2em 1fr 1fr 1fr 0.3fr;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-areas: "spaceHeader spaceHeader spaceHeader spaceHeader" "playerMain . . playerSecond" "playerMain dice dice playerSecond" "spaceGame spaceGame spaceGame spaceGame" "gameP1 btnAction btnAction gameP2" "spaceNewGame spaceNewGame spaceNewGame spaceNewGame" "newGame newGame newGame newGame" "spaceFooter spaceFooter spaceFooter spaceFooter";
+    grid-template-rows: 1em 1fr 2fr 2em 1fr 1fr 1fr 1fr 0.3fr;
+    grid-template-columns: 3fr 1fr 1fr 3fr;
+  }
+  .grid-player-main {
+    align-self: center;
+  }
+  .grid-player-second {
+    align-self: center;
   }
   .player-main-current-score {
     grid-area: gameP1;
     justify-self: center;
+    align-self: center;
   }
   .player-btn-actions {
     grid-area: btnAction;
     justify-self: center;
-    display: flex;
-    align-items: center;
   }
   .player-second-current-score {
     grid-area: gameP2;
     justify-self: center;
+    align-self: center;
+  }
+}
+@media screen and (min-width: 1350px) {
+  .grid-container {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1550px) {
+  .grid-container {
+    width: 60%;
   }
 }
 header {
@@ -408,18 +427,23 @@ h1 img {
   margin-top: 0.3em;
 }
 
-.grid-player-second p {
-  font-size: 3em;
-  color: #DC3C33;
-  margin-left: 0.5em;
+@media screen and (max-width: 999px) {
+  .grid-player-second p {
+    font-size: 3em;
+    color: #DC3C33;
+    margin-left: 0.5em;
+  }
 }
-
+@media screen and (min-width: 1000px) {
+  .grid-player-second p {
+    margin-top: 0.3em;
+  }
+}
 .player-current-score {
   display: inline-block;
   min-width: 8em;
   width: 30vmin;
   max-width: 45%;
-  margin-right: 2em;
   border-radius: 0.3rem;
   background-color: #DC3C33;
   text-align: center;
@@ -439,6 +463,12 @@ h1 img {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 1000px) {
+  .player-btn-actions {
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
