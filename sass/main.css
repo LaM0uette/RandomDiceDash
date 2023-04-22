@@ -416,6 +416,15 @@ h1 img {
   box-shadow: 9px 9px 10px #edeaea, -9px -9px 10px #ffffff;
 }
 
+.disabled-button {
+  pointer-events: none;
+  cursor: default;
+  color: rgba(36, 49, 45, 0.4);
+}
+.disabled-button .btn-icon {
+  filter: grayscale(80%);
+}
+
 @media screen and (min-width: 850px) {
   .btn-dice {
     width: 8vmax;
