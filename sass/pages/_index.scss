@@ -79,6 +79,12 @@ h1 {
 .btn-dice {
   width: 14vmax;
   height: 14vmax;
+  transition: transform .1s;
+
+  &:hover {
+    transform: rotateZ(15deg);
+    transition: transform .1s;
+  }
 }
 
 .btn-dice-icon {

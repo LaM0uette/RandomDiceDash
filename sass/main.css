@@ -403,6 +403,11 @@ h1 img {
 .btn-dice {
   width: 14vmax;
   height: 14vmax;
+  transition: transform 0.1s;
+}
+.btn-dice:hover {
+  transform: rotateZ(15deg);
+  transition: transform 0.1s;
 }
 
 .btn-dice-icon {
