@@ -2,6 +2,7 @@
 export const DiceButton = document.getElementById("btn-dice");
 export const RollButton = document.getElementById("btn-roll-dice");
 export const HoldButton = document.getElementById("btn-hold");
+export const NewGameButton = document.getElementById("btn-new-game");
 
 // Scores
 export const PlayerMainGlobalScore = document.getElementById("player-main-global-score-value");
