@@ -143,6 +143,15 @@ h1 {
   }
 }
 
+.player-global-score::after {
+  content: "◉";
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.3em;
+  margin-bottom: 0.17em;
+  font-size: 1em;
+  color: transparent;
+} //TODO : A OPTIMISER !
 .player-turn::after {
   content: "◉";
   display: inline-block;
