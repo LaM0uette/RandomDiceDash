@@ -301,9 +301,8 @@ main {
     font-size: 1vmax;
   }
 }
-h1 {
-  text-align: center;
-  font-size: 4.8vmax;
+h1 img {
+  height: 10vh;
 }
 
 .btn {

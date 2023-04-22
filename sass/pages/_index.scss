@@ -20,10 +20,11 @@ main {
 }
 
 
-// Title H1
+// Title H1 (Logo)
 h1 {
-  text-align: center;
-  font-size: 4.8vmax;
+  img {
+    height: 10vh;
+  }
 }
 
 
