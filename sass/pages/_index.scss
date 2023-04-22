@@ -143,6 +143,16 @@ h1 {
   }
 }
 
+.player-turn::after {
+  content: "◉";
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.3em;
+  margin-bottom: 0.17em;
+  font-size: 1em;
+  color: $colorPrimary;
+}
+
 
 // Grid game - Player current score
 .player-current-score {

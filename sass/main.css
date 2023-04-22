@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body,
 div,
 dl,
@@ -453,6 +454,16 @@ h1 img {
     margin-top: 0.3em;
   }
 }
+.player-turn::after {
+  content: "◉";
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.3em;
+  margin-bottom: 0.17em;
+  font-size: 1em;
+  color: #DC3C33;
+}
+
 .player-current-score {
   display: inline-block;
   min-width: 8em;
