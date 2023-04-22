@@ -1,16 +1,14 @@
-import * as Constants from './constants.js';
-import * as Utils from './utils.js';
-import * as Game from "./game.js";
+import * as pkg from "./_imports.js";
 
 document.addEventListener("DOMContentLoaded", OnLoad)
-Constants.NewGameButton.addEventListener("click", Game.NewGame);
+pkg.Constants.NewGameButton.addEventListener("click", pkg.Game.NewGame);
 
 function OnLoad() {
     DisableButton();
 }
 
 function DisableButton() {
-    let elements = [Constants.DiceButton, Constants.RollButton, Constants.HoldButton];
-    Utils.AddClassOnHtmlElements(elements, 'disabled-button');
+    let elements = [pkg.Constants.DiceButton, pkg.Constants.RollButton, pkg.Constants.HoldButton];
+    pkg.Utils.AddClassOnHtmlElements(elements, 'disabled-button');
 }
 
