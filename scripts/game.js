@@ -2,6 +2,7 @@ import * as pkg from "./_imports.js";
 
 export function NewGame() {
     ResetAllScores();
+    pkg.Index.EnabledButton();
 }
 
 function ResetAllScores() {
