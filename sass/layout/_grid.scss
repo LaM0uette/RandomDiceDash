@@ -4,7 +4,7 @@
           "spaceHeader spaceHeader"
           "playerMain playerMain"
           "dice dice"
-          "game game"
+          "game1 game2"
           "spaceGame spaceGame"
           "playerSecond playerSecond"
           "newGame newGame"
@@ -21,7 +21,7 @@
   grid-gap: 1em;
 
   > * {
-    //border: #24312D solid 1px;
+    border: #24312D solid 1px;
   }
 }
 
@@ -49,9 +49,57 @@
   align-self: center;
 }
 
-.grid-game {
-  grid-area: game;
-  justify-self: center;
-  display: flex;
-  align-items: center;
+.player-main-current-score {
+  grid-area: game1;
+  justify-self: end;
+}
+
+.player-btn-actions {
+  grid-area: game2;
+  justify-self: start;
+}
+
+@media screen and (max-width: 999px) {
+  .player-current-score.player-second-current-score{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px){
+  .grid-container {
+    grid-template-areas:
+          "spaceHeader spaceHeader spaceHeader spaceHeader"
+          "playerMain . . playerSecond"
+          "playerMain dice dice playerSecond"
+          "spaceGame spaceGame spaceGame spaceGame"
+          "gameP1 btnAction btnAction gameP2"
+          "newGame newGame newGame newGame"
+          "spaceFooter spaceFooter spaceFooter spaceFooter";
+    grid-template-rows:
+          1em  // spaceHeader
+          1fr  // playerMain
+          2fr  // dice
+          2em  // spaceGame
+          1fr  // game
+          1fr  // playerSecond
+          1fr  // newGame
+          0.3fr; // spaceFooter
+  }
+
+  .player-main-current-score {
+    grid-area: gameP1;
+    justify-self: center;
+  }
+
+  .player-btn-actions {
+    grid-area: btnAction;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .player-second-current-score {
+    grid-area: gameP2;
+    justify-self: center;
+  }
 }
