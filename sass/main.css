@@ -315,13 +315,38 @@ h1 img {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   font-size: 1.6em;
   font-weight: 500;
   color: #24312D;
+  border-bottom: solid 0.1em transparent;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+.btn-action:hover:after {
+  width: 100%;
+  left: 0;
+}
+.btn-action:after {
+  content: "";
+  pointer-events: none;
+  bottom: -0.1em;
+  left: 50%;
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #DC3C33;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
 }
 .btn-action img {
   height: 1.2em;
   margin-right: 0.3em;
+  margin-bottom: 0.1em;
 }
 
 .btn-dice {
