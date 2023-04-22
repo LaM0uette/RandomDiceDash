@@ -3,7 +3,7 @@ import * as pkg from "./_imports.js";
 export function NewGame() {
     ResetGame();
     pkg.Index.EnabledButton();
-    SetFirstPlayer();
+    PickFirstPlayerTurn();
 }
 
 function ResetGame() {
@@ -23,7 +23,7 @@ function ResetAllScores() {
     pkg.Constants.PlayerSecondCurrentScore.innerHTML = "0";
 }
 
-function SetFirstPlayer() {
+function PickFirstPlayerTurn() {
     let randomPlayer = pkg.Utils.GetRandomNumber(0, 1);
     let player = randomPlayer === 0 ? pkg.Constants.PlayerMain : pkg.Constants.PlayerSecond;
 
