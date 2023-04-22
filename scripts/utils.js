@@ -19,3 +19,8 @@ export function RemoveClassOnHtmlElements(elements, className) {
         RemoveClassOnHtmlElement(element, className);
     });
 }
+
+
+export function GetRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

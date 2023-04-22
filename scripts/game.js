@@ -1,9 +1,19 @@
 import * as pkg from "./_imports.js";
 
 export function NewGame() {
-    ResetAllScores();
+    ResetGame();
     pkg.Index.EnabledButton();
     SetFirstPlayer();
+}
+
+function ResetGame() {
+    ResetPlayerTurn();
+    ResetAllScores();
+}
+
+function ResetPlayerTurn() {
+    let players = [pkg.Constants.PlayerMain, pkg.Constants.PlayerSecond];
+    pkg.Utils.RemoveClassOnHtmlElements(players, 'player-turn');
 }
 
 function ResetAllScores() {
@@ -14,5 +24,8 @@ function ResetAllScores() {
 }
 
 function SetFirstPlayer() {
-    pkg.Utils.AddClassOnHtmlElement(pkg.Constants.PlayerMain, 'player-turn');
+    let randomPlayer = pkg.Utils.GetRandomNumber(0, 1);
+    let player = randomPlayer === 0 ? pkg.Constants.PlayerMain : pkg.Constants.PlayerSecond;
+
+    pkg.Utils.AddClassOnHtmlElement(player, 'player-turn');
 }
