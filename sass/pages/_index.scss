@@ -91,17 +91,20 @@ h1 {
   }
 }
 
-.btn-dice {
-  width: clamp(100px, 10vmax, 200px);
-  height: clamp(100px, 10vmax, 200px);
-  transition: transform .1s;
-
+.grid-dice{
   animation-name: scale-up;
   animation-timing-function: ease-in-out;
   animation-duration: .3s;
   animation-delay: .1s;
   animation-fill-mode: forwards;
+  animation-iteration-count: 1;
   opacity: 0;
+}
+
+.btn-dice {
+  width: clamp(100px, 10vmax, 200px);
+  height: clamp(100px, 10vmax, 200px);
+  transition: transform .1s;
 
   &:hover {
     transform: rotateZ(15deg);

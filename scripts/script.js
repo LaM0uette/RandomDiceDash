@@ -1,6 +1,7 @@
 import * as pkg from "./_imports.js";
 
 const mediaQuery = window.matchMedia("screen and (max-width: 999px)");
+
 function handleMediaQueryChange(event) {
     if (event.matches) {
         pkg.Game.SetOnMobile(true);
@@ -8,6 +9,7 @@ function handleMediaQueryChange(event) {
         pkg.Game.SetOnMobile(false);
     }
 }
+
 mediaQuery.addEventListener("change", handleMediaQueryChange);
 handleMediaQueryChange(mediaQuery);
 
