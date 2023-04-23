@@ -72,6 +72,18 @@ function SetMobilePlayerTurn() {
 
     pkg.Constants.PlayerMain.textContent = `PLAYER ${numPlayerMain}`;
     pkg.Constants.PlayerSecond.textContent = `PLAYER ${numPlayerSecond} :`;
+
+    InversePlayerScores();
+}
+
+function InversePlayerScores(){
+    let playerMainGlobalScore = GetPlayerGlobalScore(Player.PlayerMain);
+    let playerSecondGlobalScore = GetPlayerGlobalScore(Player.PlayerSecond);
+    let p1 = playerMainGlobalScore.innerHTML;
+    let p2 = playerSecondGlobalScore.innerHTML;
+
+    SetGlobalScore(playerSecondGlobalScore, p1);
+    SetGlobalScore(playerMainGlobalScore, p2);
 }
 
 function GetCurrentPlayerGlobalScore() {
@@ -104,12 +116,6 @@ function GetPlayerGlobalScoreToInt(player) {
         parseInt(pkg.Constants.PlayerSecondGlobalScore.innerHTML);
 }
 
-function GetPlayerCurrentScoreToInt(player) {
-    return player === Player.PlayerMain ?
-        parseInt(pkg.Constants.PlayerMainCurrentScore.innerHTML):
-        parseInt(pkg.Constants.PlayerSecondCurrentScore.innerHTML);
-}
-
 
 export function RollDice() {
     let diceValue = GetRandomDiceValue();
@@ -118,7 +124,7 @@ export function RollDice() {
 }
 
 function GetRandomDiceValue() {
-    const minDiceValue = 2; //TODO REMETTRE 1
+    const minDiceValue = 1;
     const maxDiceValue = 6;
 
     let diceValue = pkg.Utils.GetRandomNumber(minDiceValue, maxDiceValue);
@@ -135,6 +141,10 @@ function GetRandomDiceValue() {
 
 function SetDiceIcon(diceValue) {
     pkg.Constants.DiceIcon.src = `img/dice/dice_${diceValue}.svg`;
+}
+
+function SetGlobalScore(globalScore, value) {
+    globalScore.innerHTML = value.toString();
 }
 
 function AddCurrentScore(diceValue) {
@@ -154,17 +164,12 @@ function AddCurrentScore(diceValue) {
     playerCurrentScore.innerHTML = currentScore.toString();
 }
 
-function ChangePlayerTurn() {
-    SwitchPlayerTurn();
-    ResetCurrentScore();
-}
-
 function ResetCurrentScore() {
     let playerCurrentScore = GetCurrentPlayerCurrentScore();
     playerCurrentScore.innerHTML = "0";
 }
 
-function ResetMainScore() {
+function ResetMainCurrentScore() {
     let playerMainScore = GetPlayerCurrentScore(Player.PlayerMain);
     playerMainScore.innerHTML = "0";
 }
@@ -185,9 +190,9 @@ function HoldOnMobile() {
     let currentScore = parseInt(playerCurrentScore.innerHTML);
 
     globalScore += currentScore;
-    playerMainGlobalScore.innerHTML = globalScore.toString();
+    SetGlobalScore(playerMainGlobalScore, globalScore);
 
-    ResetMainScore();
+    ResetMainCurrentScore();
     CheckWinner();
 }
 
@@ -198,7 +203,7 @@ function HoldOnDesktop() {
     let currentScore = parseInt(playerCurrentScore.innerHTML);
 
     globalScore += currentScore;
-    playerGlobalScore.innerHTML = globalScore.toString();
+    SetGlobalScore(playerGlobalScore, globalScore);
 
     ResetCurrentScore();
     CheckWinner();
@@ -209,7 +214,7 @@ function CheckWinner() {
     let playerSecondGlobalScore = GetPlayerGlobalScoreToInt(Player.PlayerSecond);
 
     if (playerMainGlobalScore < 100 && playerSecondGlobalScore < 100) {
-        ChangePlayerTurn();
+        SwitchPlayerTurn();
         return;
     }
 
