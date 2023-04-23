@@ -40,7 +40,12 @@ function ResetAllScores() {
 function PickFirstPlayerTurn() {
     let randomPlayer = pkg.Utils.GetRandomNumber(0, 1);
     currentPlayer = randomPlayer === 0 ? Player.PlayerMain : Player.PlayerSecond;
-    SetPlayerTurn();
+
+    if (!onMobile) {
+        SetPlayerTurn();
+    }else {
+        SetMobilePlayerTurn();
+    }
 }
 
 function SwitchPlayerTurn() {
@@ -63,6 +68,14 @@ function SetPlayerTurn() {
     pkg.Utils.AddClassOnHtmlElement(playerHtmlElement, 'player-turn');
 }
 
+function SetMobilePlayerTurn() {
+    let numPlayerMain = currentPlayer === Player.PlayerMain ? 1 : 2;
+    let numPlayerSecond = numPlayerMain === 1 ? 2 : 1;
+
+    pkg.Constants.PlayerMain.textContent = `PLAYER ${numPlayerMain}`;
+    pkg.Constants.PlayerSecond.textContent = `PLAYER ${numPlayerSecond} :`;
+}
+
 function GetCurrentPlayerGlobalScore() {
     return currentPlayer === Player.PlayerMain ?
         pkg.Constants.PlayerMainGlobalScore :
@@ -79,6 +92,12 @@ function GetPlayerGlobalScoreToInt(player) {
     return player === Player.PlayerMain ?
         parseInt(pkg.Constants.PlayerMainGlobalScore.innerHTML):
         parseInt(pkg.Constants.PlayerSecondGlobalScore.innerHTML);
+}
+
+function GetPlayerCurrentScoreToInt(player) {
+    return player === Player.PlayerMain ?
+        parseInt(pkg.Constants.PlayerMainCurrentScore.innerHTML):
+        parseInt(pkg.Constants.PlayerSecondCurrentScore.innerHTML);
 }
 
 
@@ -135,6 +154,23 @@ function ResetCurrentScore() {
 
 
 export function Hold() {
+    if (onMobile) {
+        HoldOnMobile();
+    }else {
+        HoldOnDesktop();
+    }
+}
+
+function HoldOnMobile() {
+    let playerMainGlobalScore = GetPlayerGlobalScoreToInt(Player.PlayerMain);
+    let playerSecondGlobalScore = GetPlayerGlobalScoreToInt(Player.PlayerSecond);
+    let playerMainCurrentScore = GetPlayerCurrentScoreToInt(Player.PlayerMain);
+
+    SetMobilePlayerTurn();
+    CheckWinner();
+}
+
+function HoldOnDesktop() {
     let playerGlobalScore = GetCurrentPlayerGlobalScore();
     let playerCurrentScore = GetCurrentPlayerCurrentScore();
     let globalScore = parseInt(playerGlobalScore.innerHTML);
