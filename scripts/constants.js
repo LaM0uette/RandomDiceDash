@@ -12,3 +12,6 @@ export const PlayerMainCurrentScore = document.getElementById("player-main-curre
 export const PlayerSecond = document.getElementById("player-second");
 export const PlayerSecondGlobalScore = document.getElementById("player-second-global-score-value");
 export const PlayerSecondCurrentScore = document.getElementById("player-second-current-score-value");
+
+// Icons
+export const DiceIcon = document.getElementById("btn-dice-icon");

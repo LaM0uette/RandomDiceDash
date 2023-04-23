@@ -1,5 +1,7 @@
 import * as pkg from "./_imports.js";
 
+let currentDiceValue = 0;
+
 export function NewGame() {
     ResetGame();
     pkg.Index.EnabledButton();
@@ -26,6 +28,31 @@ function ResetAllScores() {
 function PickFirstPlayerTurn() {
     let randomPlayer = pkg.Utils.GetRandomNumber(0, 1);
     let player = randomPlayer === 0 ? pkg.Constants.PlayerMain : pkg.Constants.PlayerSecond;
-
     pkg.Utils.AddClassOnHtmlElement(player, 'player-turn');
+}
+
+
+export function RollDice() {
+    let diceValue = GetRandomDiceValue();
+    SetDiceIcon(diceValue);
+}
+
+function GetRandomDiceValue() {
+    const minDiceValue = 1;
+    const maxDiceValue = 6;
+
+    let diceValue = pkg.Utils.GetRandomNumber(minDiceValue, maxDiceValue);
+
+    if (currentDiceValue === minDiceValue){
+        while (diceValue === minDiceValue) {
+            diceValue = pkg.Utils.GetRandomNumber(minDiceValue, maxDiceValue);
+        }
+    }
+
+    currentDiceValue = diceValue;
+    return diceValue;
+}
+
+function SetDiceIcon(diceValue) {
+    pkg.Constants.DiceIcon.src = `img/dice/dice_${diceValue}.svg`;
 }
