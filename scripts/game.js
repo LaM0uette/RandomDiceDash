@@ -155,7 +155,7 @@ function AddCurrentScore(diceValue) {
 
     if (diceValue === 1) {
         currentScore = 0;
-        ChangePlayerTurn();
+        SwitchPlayerTurn();
     }else {
         currentScore = parseInt(playerCurrentScore.innerHTML);
         currentScore += diceValue;
