@@ -19,6 +19,16 @@
     transform: translate(0, 0);
   }
 }
+@keyframes scale-up {
+  from {
+    opacity: 0;
+    transform: scale(10%);
+  }
+  to {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
 @keyframes slide-down {
   from {
     opacity: 0;
@@ -409,7 +419,6 @@ header {
   justify-content: center;
   align-items: center;
   height: 10vh;
-  animation: slide-down 0.2s ease-in-out;
 }
 
 main {
@@ -423,6 +432,7 @@ main {
 
 h1 img {
   height: 10vh;
+  animation: slide-down 0.2s ease-in-out;
 }
 
 .btn {
@@ -467,12 +477,32 @@ h1 img {
   height: 1.2em;
   margin-right: 0.3em;
   margin-bottom: 0.1em;
+  animation-name: slide-up;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.2s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.btn-action span {
+  animation-name: slide-left;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.2s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .btn-dice {
   width: clamp(100px, 10vmax, 200px);
   height: clamp(100px, 10vmax, 200px);
   transition: transform 0.1s;
+  animation-name: scale-up;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.3s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 .btn-dice:hover {
   transform: rotateZ(15deg);
@@ -498,10 +528,24 @@ h1 img {
   filter: grayscale(80%);
 }
 
+.grid-player h2 {
+  animation-name: slide-down;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.2s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
 .grid-player p {
   font-size: 5em;
   line-height: 0.7;
   color: #DC3C33;
+  animation-name: slide-up;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.2s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .grid-player-main p {
@@ -536,6 +580,11 @@ h1 img {
   border-radius: 0.3rem;
   background-color: #DC3C33;
   text-align: center;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 .player-current-score h3 {
   font-size: 1.7em;
@@ -544,6 +593,14 @@ h1 img {
 .player-current-score p {
   font-size: 2.8em;
   color: #f7f8f7;
+}
+
+.player-main-current-score {
+  animation-name: slide-right;
+}
+
+.player-second-current-score {
+  animation-name: slide-left;
 }
 
 .player-btn-actions {
@@ -555,10 +612,24 @@ h1 img {
 }
 
 @media screen and (max-width: 999px) {
+  .grid-player-second h2 {
+    animation-name: slide-left;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.2s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
   .grid-player-second p {
     font-size: 3em;
     color: #DC3C33;
     margin-left: 0.5em;
+    animation-name: slide-right;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.2s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
   }
 }
 @media screen and (min-width: 1000px) {

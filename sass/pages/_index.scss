@@ -4,7 +4,6 @@ header {
   justify-content: center;
   align-items: center;
   height: 10vh;
-  animation: slide-down .2s ease-in-out;
 }
 
 
@@ -23,6 +22,7 @@ main {
 h1 {
   img {
     height: 10vh;
+    animation: slide-down .2s ease-in-out;
   }
 }
 
@@ -72,6 +72,22 @@ h1 {
     height: 1.2em;
     margin-right: 0.3em;
     margin-bottom: 0.1em;
+
+    animation-name: slide-up;
+    animation-timing-function: ease-in-out;
+    animation-duration: .2s;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  span {
+    animation-name: slide-left;
+    animation-timing-function: ease-in-out;
+    animation-duration: .2s;
+    animation-delay: .2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
   }
 }
 
@@ -79,6 +95,13 @@ h1 {
   width: clamp(100px, 10vmax, 200px);
   height: clamp(100px, 10vmax, 200px);
   transition: transform .1s;
+
+  animation-name: scale-up;
+  animation-timing-function: ease-in-out;
+  animation-duration: .3s;
+  animation-delay: .1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 
   &:hover {
     transform: rotateZ(15deg);
@@ -108,10 +131,26 @@ h1 {
 
 // Player
 .grid-player {
+  h2{
+    animation-name: slide-down;
+    animation-timing-function: ease-in-out;
+    animation-duration: .2s;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
   p{
     font-size: 5em;
     line-height: .7;
     color: $colorPrimary;
+
+    animation-name: slide-up;
+    animation-timing-function: ease-in-out;
+    animation-duration: .2s;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
   }
 }
 
@@ -151,6 +190,12 @@ h1 {
   background-color: $colorPrimary;
   text-align: center;
 
+  animation-timing-function: ease-in-out;
+  animation-duration: .2s;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+
   h3{
     font-size: 1.7em;
     color: $colorTertiary;
@@ -160,6 +205,13 @@ h1 {
     font-size: 2.8em;
     color: $colorTertiary;
   }
+}
+
+.player-main-current-score{
+  animation-name: slide-right;
+}
+.player-second-current-score{
+  animation-name: slide-left;
 }
 
 .player-btn-actions {
@@ -173,10 +225,26 @@ h1 {
 
 @media screen and (max-width: 999px){
   .grid-player-second {
+    h2{
+      animation-name: slide-left;
+      animation-timing-function: ease-in-out;
+      animation-duration: .2s;
+      animation-delay: .3s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+
     p{
       font-size: 3em;
       color: $colorPrimary;
       margin-left: 0.5em;
+
+      animation-name: slide-right;
+      animation-timing-function: ease-in-out;
+      animation-duration: .2s;
+      animation-delay: .3s;
+      animation-fill-mode: forwards;
+      opacity: 0;
     }
   }
 }
