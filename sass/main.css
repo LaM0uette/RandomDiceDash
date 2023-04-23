@@ -344,15 +344,10 @@ header {
 }
 
 main {
-  font-size: 2vmax;
+  font-size: clamp(14px, 1.5vmax, 20px);
   height: 90vh;
 }
 
-@media screen and (min-width: 1000px) {
-  main {
-    font-size: 1vmax;
-  }
-}
 h1 img {
   height: 10vh;
 }
@@ -402,8 +397,8 @@ h1 img {
 }
 
 .btn-dice {
-  width: 14vmax;
-  height: 14vmax;
+  width: clamp(100px, 10vmax, 200px);
+  height: clamp(100px, 10vmax, 200px);
   transition: transform 0.1s;
 }
 .btn-dice:hover {
@@ -426,12 +421,6 @@ h1 img {
   filter: grayscale(80%);
 }
 
-@media screen and (min-width: 850px) {
-  .btn-dice {
-    width: 8vmax;
-    height: 8vmax;
-  }
-}
 .grid-player p {
   font-size: 5em;
   line-height: 0.7;
@@ -442,18 +431,6 @@ h1 img {
   margin-top: 0.3em;
 }
 
-@media screen and (max-width: 999px) {
-  .grid-player-second p {
-    font-size: 3em;
-    color: #DC3C33;
-    margin-left: 0.5em;
-  }
-}
-@media screen and (min-width: 1000px) {
-  .grid-player-second p {
-    margin-top: 0.3em;
-  }
-}
 .player-global-score::after {
   content: "◉";
   display: inline-block;
@@ -500,9 +477,19 @@ h1 img {
   justify-content: space-between;
 }
 
+@media screen and (max-width: 999px) {
+  .grid-player-second p {
+    font-size: 3em;
+    color: #DC3C33;
+    margin-left: 0.5em;
+  }
+}
 @media screen and (min-width: 1000px) {
   .player-btn-actions {
     align-items: center;
+  }
+  .grid-player-second p {
+    margin-top: 0.3em;
   }
 }
 
