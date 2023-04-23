@@ -86,6 +86,18 @@ function GetCurrentPlayerCurrentScore() {
         pkg.Constants.PlayerSecondCurrentScore;
 }
 
+function GetPlayerGlobalScore(player) {
+    return player === Player.PlayerMain ?
+        pkg.Constants.PlayerMainGlobalScore:
+        pkg.Constants.PlayerSecondGlobalScore;
+}
+
+function GetPlayerCurrentScore(player) {
+    return player === Player.PlayerMain ?
+        pkg.Constants.PlayerMainCurrentScore:
+        pkg.Constants.PlayerSecondCurrentScore;
+}
+
 function GetPlayerGlobalScoreToInt(player) {
     return player === Player.PlayerMain ?
         parseInt(pkg.Constants.PlayerMainGlobalScore.innerHTML):
@@ -106,7 +118,7 @@ export function RollDice() {
 }
 
 function GetRandomDiceValue() {
-    const minDiceValue = 1;
+    const minDiceValue = 2; //TODO REMETTRE 1
     const maxDiceValue = 6;
 
     let diceValue = pkg.Utils.GetRandomNumber(minDiceValue, maxDiceValue);
@@ -127,7 +139,9 @@ function SetDiceIcon(diceValue) {
 
 function AddCurrentScore(diceValue) {
     let currentScore;
-    let playerCurrentScore = GetCurrentPlayerCurrentScore();
+    let playerCurrentScore = onMobile ?
+        GetPlayerCurrentScore(Player.PlayerMain):
+        GetCurrentPlayerCurrentScore();
 
     if (diceValue === 1) {
         currentScore = 0;
@@ -150,6 +164,11 @@ function ResetCurrentScore() {
     playerCurrentScore.innerHTML = "0";
 }
 
+function ResetMainScore() {
+    let playerMainScore = GetPlayerCurrentScore(Player.PlayerMain);
+    playerMainScore.innerHTML = "0";
+}
+
 
 export function Hold() {
     if (onMobile) {
@@ -160,11 +179,15 @@ export function Hold() {
 }
 
 function HoldOnMobile() {
-    let playerMainGlobalScore = GetPlayerGlobalScoreToInt(Player.PlayerMain);
-    let playerSecondGlobalScore = GetPlayerGlobalScoreToInt(Player.PlayerSecond);
-    let playerMainCurrentScore = GetPlayerCurrentScoreToInt(Player.PlayerMain);
+    let playerMainGlobalScore = GetPlayerGlobalScore(Player.PlayerMain);
+    let playerCurrentScore = GetPlayerCurrentScore(Player.PlayerMain);
+    let globalScore = parseInt(playerMainGlobalScore.innerHTML);
+    let currentScore = parseInt(playerCurrentScore.innerHTML);
 
-    SetMobilePlayerTurn();
+    globalScore += currentScore;
+    playerMainGlobalScore.innerHTML = globalScore.toString();
+
+    ResetMainScore();
     CheckWinner();
 }
 
