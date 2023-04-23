@@ -195,7 +195,7 @@ function BodyAlert() {
     pkg.Utils.AddClassOnHtmlElement(document.body, 'body-alert');
     setTimeout(() => {
         pkg.Utils.RemoveClassOnHtmlElement(document.body, 'body-alert');
-    }, 200);
+    }, 150);
 }
 
 function ResetCurrentScore() {
