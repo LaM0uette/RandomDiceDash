@@ -41,11 +41,7 @@ function PickFirstPlayerTurn() {
     let randomPlayer = pkg.Utils.GetRandomNumber(0, 1);
     currentPlayer = randomPlayer === 0 ? Player.PlayerMain : Player.PlayerSecond;
 
-    if (!onMobile) {
-        SetPlayerTurn();
-    }else {
-        SetMobilePlayerTurn();
-    }
+    SwitchPlayerTurn();
 }
 
 function SwitchPlayerTurn() {
@@ -55,12 +51,14 @@ function SwitchPlayerTurn() {
         Player.PlayerSecond :
         Player.PlayerMain;
 
-    SetPlayerTurn();
+    if (!onMobile) {
+        SetPlayerTurn();
+    }else {
+        SetMobilePlayerTurn();
+    }
 }
 
 function SetPlayerTurn() {
-    if (onMobile) return;
-
     let playerHtmlElement = currentPlayer === Player.PlayerMain ?
         pkg.Constants.PlayerMain :
         pkg.Constants.PlayerSecond;
