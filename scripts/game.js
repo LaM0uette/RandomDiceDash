@@ -60,6 +60,12 @@ function GetPlayerCurrentScore() {
         pkg.Constants.PlayerSecondCurrentScore;
 }
 
+function GetPlayerGlobalScore() {
+    return currentPlayer === Player.PlayerMain ?
+        pkg.Constants.PlayerMainGlobalScore :
+        pkg.Constants.PlayerSecondGlobalScore;
+}
+
 
 export function RollDice() {
     let diceValue = GetRandomDiceValue();
@@ -110,4 +116,18 @@ function ChangePlayerTurn() {
 function ResetCurrentScore() {
     let playerCurrentScore = GetPlayerCurrentScore();
     playerCurrentScore.innerHTML = "0";
+}
+
+
+export function Hold() {
+    let playerGlobalScore = GetPlayerGlobalScore();
+    let playerCurrentScore = GetPlayerCurrentScore();
+    let globalScore = parseInt(playerGlobalScore.innerHTML);
+    let currentScore = parseInt(playerCurrentScore.innerHTML);
+
+    globalScore += currentScore;
+    playerGlobalScore.innerHTML = globalScore.toString();
+
+    ResetCurrentScore();
+    ChangePlayerTurn();
 }
