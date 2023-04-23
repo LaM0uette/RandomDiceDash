@@ -368,6 +368,10 @@ main {
   height: 90vh;
 }
 
+.body-alert {
+  background: rgba(220, 60, 51, 0.6);
+}
+
 h1 img {
   height: 10vh;
 }

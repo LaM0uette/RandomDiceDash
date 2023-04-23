@@ -1,5 +1,6 @@
 import * as pkg from "./_imports.js";
 
+let disableSpamTiming = 300;
 const Player = {
     PlayerMain: "player-main",
     PlayerSecond: "player-second",
@@ -118,8 +119,8 @@ function GetPlayerGlobalScoreToInt(player) {
 
 
 export function RollDice() {
-    DisableSpamButton(pkg.Constants.DiceButton, 200);
-    DisableSpamButton(pkg.Constants.RollButton, 200);
+    DisableSpamButton(pkg.Constants.DiceButton, disableSpamTiming);
+    DisableSpamButton(pkg.Constants.RollButton, disableSpamTiming);
     ShakeDice();
 
     let diceValue = GetRandomDiceValue();
@@ -167,20 +168,34 @@ function SetGlobalScore(globalScore, value) {
 }
 
 function AddCurrentScore(diceValue) {
-    let currentScore;
     let playerCurrentScore = onMobile ?
         GetPlayerCurrentScore(Player.PlayerMain):
         GetCurrentPlayerCurrentScore();
 
+    let currentScore = CheckDiceValue(diceValue, playerCurrentScore);
+    playerCurrentScore.innerHTML = currentScore.toString();
+}
+
+function CheckDiceValue(diceValue, playerScore) {
+    let currentScore;
+
     if (diceValue === 1) {
         currentScore = 0;
+        BodyAlert();
         SwitchPlayerTurn();
     }else {
-        currentScore = parseInt(playerCurrentScore.innerHTML);
+        currentScore = parseInt(playerScore.innerHTML);
         currentScore += diceValue;
     }
 
-    playerCurrentScore.innerHTML = currentScore.toString();
+    return currentScore;
+}
+
+function BodyAlert() {
+    pkg.Utils.AddClassOnHtmlElement(document.body, 'body-alert');
+    setTimeout(() => {
+        pkg.Utils.RemoveClassOnHtmlElement(document.body, 'body-alert');
+    }, 200);
 }
 
 function ResetCurrentScore() {
@@ -195,7 +210,7 @@ function ResetMainCurrentScore() {
 
 
 export function Hold() {
-    DisableSpamButton(pkg.Constants.HoldButton, 200);
+    DisableSpamButton(pkg.Constants.HoldButton, disableSpamTiming);
 
     if (onMobile) {
         HoldOnMobile();
