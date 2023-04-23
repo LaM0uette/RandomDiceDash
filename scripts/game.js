@@ -118,9 +118,18 @@ function GetPlayerGlobalScoreToInt(player) {
 
 
 export function RollDice() {
+    ShakeDice();
+
     let diceValue = GetRandomDiceValue();
     SetDiceIcon(diceValue);
     AddCurrentScore(diceValue);
+}
+
+function ShakeDice() {
+    pkg.Utils.AddClassOnHtmlElement(pkg.Constants.DiceButton, 'btn-dice-shake');
+    setTimeout(() => {
+        pkg.Utils.RemoveClassOnHtmlElement(pkg.Constants.DiceButton, 'btn-dice-shake');
+    }, 400);
 }
 
 function GetRandomDiceValue() {

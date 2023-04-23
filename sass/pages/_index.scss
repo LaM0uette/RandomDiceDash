@@ -80,6 +80,9 @@ h1 {
     transition: transform .1s;
   }
 }
+.btn-dice-shake {
+  animation: shake .3s ease-in-out;
+}
 
 .btn-dice-icon {
   border-radius: 25px;
