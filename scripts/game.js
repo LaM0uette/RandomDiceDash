@@ -118,11 +118,21 @@ function GetPlayerGlobalScoreToInt(player) {
 
 
 export function RollDice() {
+    DisableSpamButton(pkg.Constants.DiceButton, 200);
+    DisableSpamButton(pkg.Constants.RollButton, 200);
     ShakeDice();
 
     let diceValue = GetRandomDiceValue();
     SetDiceIcon(diceValue);
     AddCurrentScore(diceValue);
+}
+
+function DisableSpamButton(button, ms) {
+    button.disabled = true;
+
+    setTimeout(() => {
+        button.disabled = false;
+    }, ms);
 }
 
 function ShakeDice() {
@@ -185,6 +195,8 @@ function ResetMainCurrentScore() {
 
 
 export function Hold() {
+    DisableSpamButton(pkg.Constants.HoldButton, 200);
+
     if (onMobile) {
         HoldOnMobile();
     }else {
