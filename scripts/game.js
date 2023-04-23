@@ -6,11 +6,16 @@ const Player = {
 };
 let currentPlayer = Player.PlayerMain;
 let currentDiceValue = 0;
+let onMobile = false;
 
 export function NewGame() {
     ResetGame();
     pkg.Index.EnabledButton();
     PickFirstPlayerTurn();
+}
+
+export function SetOnMobile(isOnMobile) {
+    onMobile = isOnMobile;
 }
 
 function ResetGame() {
@@ -19,6 +24,8 @@ function ResetGame() {
 }
 
 function ResetPlayerTurn() {
+    if (onMobile) return;
+
     let players = [pkg.Constants.PlayerMain, pkg.Constants.PlayerSecond];
     pkg.Utils.RemoveClassOnHtmlElements(players, 'player-turn');
 }
@@ -47,6 +54,8 @@ function SwitchPlayerTurn() {
 }
 
 function SetPlayerTurn() {
+    if (onMobile) return;
+
     let playerHtmlElement = currentPlayer === Player.PlayerMain ?
         pkg.Constants.PlayerMain :
         pkg.Constants.PlayerSecond;
@@ -54,16 +63,22 @@ function SetPlayerTurn() {
     pkg.Utils.AddClassOnHtmlElement(playerHtmlElement, 'player-turn');
 }
 
-function GetPlayerCurrentScore() {
+function GetCurrentPlayerGlobalScore() {
+    return currentPlayer === Player.PlayerMain ?
+        pkg.Constants.PlayerMainGlobalScore :
+        pkg.Constants.PlayerSecondGlobalScore;
+}
+
+function GetCurrentPlayerCurrentScore() {
     return currentPlayer === Player.PlayerMain ?
         pkg.Constants.PlayerMainCurrentScore :
         pkg.Constants.PlayerSecondCurrentScore;
 }
 
-function GetPlayerGlobalScore() {
-    return currentPlayer === Player.PlayerMain ?
-        pkg.Constants.PlayerMainGlobalScore :
-        pkg.Constants.PlayerSecondGlobalScore;
+function GetPlayerGlobalScoreToInt(player) {
+    return player === Player.PlayerMain ?
+        parseInt(pkg.Constants.PlayerMainGlobalScore.innerHTML):
+        parseInt(pkg.Constants.PlayerSecondGlobalScore.innerHTML);
 }
 
 
@@ -95,7 +110,7 @@ function SetDiceIcon(diceValue) {
 
 function AddCurrentScore(diceValue) {
     let currentScore;
-    let playerCurrentScore = GetPlayerCurrentScore();
+    let playerCurrentScore = GetCurrentPlayerCurrentScore();
 
     if (diceValue === 1) {
         currentScore = 0;
@@ -114,14 +129,14 @@ function ChangePlayerTurn() {
 }
 
 function ResetCurrentScore() {
-    let playerCurrentScore = GetPlayerCurrentScore();
+    let playerCurrentScore = GetCurrentPlayerCurrentScore();
     playerCurrentScore.innerHTML = "0";
 }
 
 
 export function Hold() {
-    let playerGlobalScore = GetPlayerGlobalScore();
-    let playerCurrentScore = GetPlayerCurrentScore();
+    let playerGlobalScore = GetCurrentPlayerGlobalScore();
+    let playerCurrentScore = GetCurrentPlayerCurrentScore();
     let globalScore = parseInt(playerGlobalScore.innerHTML);
     let currentScore = parseInt(playerCurrentScore.innerHTML);
 
@@ -129,5 +144,24 @@ export function Hold() {
     playerGlobalScore.innerHTML = globalScore.toString();
 
     ResetCurrentScore();
-    ChangePlayerTurn();
+    CheckWinner();
+}
+
+function CheckWinner() {
+    let playerMainGlobalScore = GetPlayerGlobalScoreToInt(Player.PlayerMain);
+    let playerSecondGlobalScore = GetPlayerGlobalScoreToInt(Player.PlayerSecond);
+
+    if (playerMainGlobalScore < 100 && playerSecondGlobalScore < 100) {
+        ChangePlayerTurn();
+        return;
+    }
+
+    EndGame();
+}
+
+function EndGame() {
+    pkg.Index.DisableButton();
+
+    let playerWon = currentPlayer === Player.PlayerMain ? "Player 1" : "Player 2";
+    alert(`${playerWon} won!`)
 }
