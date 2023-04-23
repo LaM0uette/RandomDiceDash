@@ -1,5 +1,10 @@
 import * as pkg from "./_imports.js";
 
+const Player = {
+    PlayerMain: "player-main",
+    PlayerSecond: "player-second",
+};
+let currentPlayer = Player.PlayerMain;
 let currentDiceValue = 0;
 
 export function NewGame() {
@@ -27,14 +32,39 @@ function ResetAllScores() {
 
 function PickFirstPlayerTurn() {
     let randomPlayer = pkg.Utils.GetRandomNumber(0, 1);
-    let player = randomPlayer === 0 ? pkg.Constants.PlayerMain : pkg.Constants.PlayerSecond;
-    pkg.Utils.AddClassOnHtmlElement(player, 'player-turn');
+    currentPlayer = randomPlayer === 0 ? Player.PlayerMain : Player.PlayerSecond;
+    SetPlayerTurn();
+}
+
+function SwitchPlayerTurn() {
+    ResetPlayerTurn();
+
+    currentPlayer = currentPlayer === Player.PlayerMain ?
+        Player.PlayerSecond :
+        Player.PlayerMain;
+
+    SetPlayerTurn();
+}
+
+function SetPlayerTurn() {
+    let playerHtmlElement = currentPlayer === Player.PlayerMain ?
+        pkg.Constants.PlayerMain :
+        pkg.Constants.PlayerSecond;
+
+    pkg.Utils.AddClassOnHtmlElement(playerHtmlElement, 'player-turn');
+}
+
+function GetPlayerCurrentScore() {
+    return currentPlayer === Player.PlayerMain ?
+        pkg.Constants.PlayerMainCurrentScore :
+        pkg.Constants.PlayerSecondCurrentScore;
 }
 
 
 export function RollDice() {
     let diceValue = GetRandomDiceValue();
     SetDiceIcon(diceValue);
+    AddCurrentScore(diceValue);
 }
 
 function GetRandomDiceValue() {
@@ -55,4 +85,29 @@ function GetRandomDiceValue() {
 
 function SetDiceIcon(diceValue) {
     pkg.Constants.DiceIcon.src = `img/dice/dice_${diceValue}.svg`;
+}
+
+function AddCurrentScore(diceValue) {
+    let currentScore;
+    let playerCurrentScore = GetPlayerCurrentScore();
+
+    if (diceValue === 1) {
+        currentScore = 0;
+        ChangePlayerTurn();
+    }else {
+        currentScore = parseInt(playerCurrentScore.innerHTML);
+        currentScore += diceValue;
+    }
+
+    playerCurrentScore.innerHTML = currentScore.toString();
+}
+
+function ChangePlayerTurn() {
+    SwitchPlayerTurn();
+    ResetCurrentScore();
+}
+
+function ResetCurrentScore() {
+    let playerCurrentScore = GetPlayerCurrentScore();
+    playerCurrentScore.innerHTML = "0";
 }
