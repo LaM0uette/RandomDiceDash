@@ -2,6 +2,8 @@ import * as pkg from "./_imports.js";
 
 const mediaQuery = window.matchMedia("screen and (max-width: 999px)");
 const handleMediaQueryChange = event => {
+    pkg.Game.ResetPlayerTurn();
+
     if (event.matches) {
         pkg.Game.SetOnMobile(true);
     } else {

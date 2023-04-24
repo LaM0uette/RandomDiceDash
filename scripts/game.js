@@ -9,22 +9,26 @@ let currentPlayer = Player.PlayerMain;
 let currentDiceValue = 0;
 let onMobile = false;
 
-export function NewGame() {
+export const SetOnMobile = isOnMobile => onMobile = isOnMobile;
+
+export const NewGame = () => {
     ResetGame();
     pkg.Index.EnabledButton();
     PickFirstPlayerTurn();
-}
+};
 
-export function SetOnMobile(isOnMobile) {
-    onMobile = isOnMobile;
-}
+const GetCurrentPlayerGlobalScore = () => currentPlayer === Player.PlayerMain ? pkg.Constants.PlayerMainGlobalScore : pkg.Constants.PlayerSecondGlobalScore;
+const GetCurrentPlayerCurrentScore = () => currentPlayer === Player.PlayerMain ? pkg.Constants.PlayerMainCurrentScore : pkg.Constants.PlayerSecondCurrentScore;
+const GetPlayerGlobalScore = player => player === Player.PlayerMain ? pkg.Constants.PlayerMainGlobalScore : pkg.Constants.PlayerSecondGlobalScore;
+const GetPlayerCurrentScore = player => player === Player.PlayerMain ? pkg.Constants.PlayerMainCurrentScore : pkg.Constants.PlayerSecondCurrentScore;
+const GetPlayerGlobalScoreToInt = player => player === Player.PlayerMain ? parseInt(pkg.Constants.PlayerMainGlobalScore.innerHTML) : parseInt(pkg.Constants.PlayerSecondGlobalScore.innerHTML);
 
 function ResetGame() {
     ResetPlayerTurn();
     ResetAllScores();
 }
 
-function ResetPlayerTurn() {
+export function ResetPlayerTurn() {
     if (onMobile) return;
 
     let players = [pkg.Constants.PlayerMain, pkg.Constants.PlayerSecond];
@@ -87,38 +91,8 @@ function InversePlayerScores(){
     SetGlobalScore(playerMainGlobalScore, p2);
 }
 
-function GetCurrentPlayerGlobalScore() {
-    return currentPlayer === Player.PlayerMain ?
-        pkg.Constants.PlayerMainGlobalScore :
-        pkg.Constants.PlayerSecondGlobalScore;
-}
 
-function GetCurrentPlayerCurrentScore() {
-    return currentPlayer === Player.PlayerMain ?
-        pkg.Constants.PlayerMainCurrentScore :
-        pkg.Constants.PlayerSecondCurrentScore;
-}
-
-function GetPlayerGlobalScore(player) {
-    return player === Player.PlayerMain ?
-        pkg.Constants.PlayerMainGlobalScore:
-        pkg.Constants.PlayerSecondGlobalScore;
-}
-
-function GetPlayerCurrentScore(player) {
-    return player === Player.PlayerMain ?
-        pkg.Constants.PlayerMainCurrentScore:
-        pkg.Constants.PlayerSecondCurrentScore;
-}
-
-function GetPlayerGlobalScoreToInt(player) {
-    return player === Player.PlayerMain ?
-        parseInt(pkg.Constants.PlayerMainGlobalScore.innerHTML):
-        parseInt(pkg.Constants.PlayerSecondGlobalScore.innerHTML);
-}
-
-
-export function RollDice() {
+export const RollDice = () => {
     DisableSpamButton(pkg.Constants.DiceButton, disableSpamTiming);
     DisableSpamButton(pkg.Constants.RollButton, disableSpamTiming);
     ShakeDice();
@@ -126,7 +100,7 @@ export function RollDice() {
     let diceValue = GetRandomDiceValue();
     SetDiceIcon(diceValue);
     AddCurrentScore(diceValue);
-}
+};
 
 function DisableSpamButton(button, ms) {
     button.disabled = true;
@@ -209,7 +183,7 @@ function ResetMainCurrentScore() {
 }
 
 
-export function Hold() {
+export const Hold = () => {
     DisableSpamButton(pkg.Constants.HoldButton, disableSpamTiming);
 
     if (onMobile) {
@@ -217,7 +191,7 @@ export function Hold() {
     }else {
         HoldOnDesktop();
     }
-}
+};
 
 function HoldOnMobile() {
     let playerMainGlobalScore = GetPlayerGlobalScore(Player.PlayerMain);
