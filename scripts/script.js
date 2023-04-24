@@ -1,25 +1,15 @@
 import * as pkg from "./_imports.js";
 
 const mediaQuery = window.matchMedia("screen and (max-width: 999px)");
-function handleMediaQueryChange(event) {
+const handleMediaQueryChange = event => {
     if (event.matches) {
         pkg.Game.SetOnMobile(true);
     } else {
         pkg.Game.SetOnMobile(false);
     }
-}
-
-mediaQuery.addEventListener("change", handleMediaQueryChange);
-handleMediaQueryChange(mediaQuery);
-
-document.addEventListener("DOMContentLoaded", OnLoad)
-pkg.Constants.NewGameButton.addEventListener("click", pkg.Game.NewGame);
-
-function OnLoad() {
-    pkg.Index.DisableButton();
-}
-
-function deleteAllCookies() {
+};
+const OnLoad = () => pkg.Index.DisableButton();
+const deleteAllCookies = () => {
     const cookies = document.cookie.split(';');
 
     for (let i = 0; i < cookies.length; i++) {
@@ -28,7 +18,13 @@ function deleteAllCookies() {
         const name = equalPos > -1 ? cookie.substr(0, equalPos) : cookie;
         document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
     }
-}
+};
+
+mediaQuery.addEventListener("change", handleMediaQueryChange);
+handleMediaQueryChange(mediaQuery);
+
+document.addEventListener("DOMContentLoaded", OnLoad)
+pkg.Constants.NewGameButton.addEventListener("click", pkg.Game.NewGame);
 
 window.addEventListener('beforeunload', () => {
     deleteAllCookies();

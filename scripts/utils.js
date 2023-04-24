@@ -1,6 +1,6 @@
-export const AddClassOnHtmlElement = (element, className) => { element.classList.add(className); };
+export const AddClassOnHtmlElement = (element, className) => element.classList.add(className);
 
-export const RemoveClassOnHtmlElement = (element, className) => { element.classList.remove(className); };
+export const RemoveClassOnHtmlElement = (element, className) => element.classList.remove(className);
 
 export const AddClassOnHtmlElements = (elements, className) => {
     elements.forEach(element => {
